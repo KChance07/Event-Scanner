@@ -17,6 +17,7 @@
 }
 
 @property (nonatomic, retain) NSDictionary *contactInfo;
+@property (nonatomic, retain) NSString *contactStatus;
 @property (nonatomic, retain) NSString *presenceToUpdate;
 @property (retain, nonatomic) IBOutlet UILabel *nameLabel;
 @property (retain, nonatomic) IBOutlet UILabel *emailLabel;

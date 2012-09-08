@@ -124,7 +124,7 @@
     if (sfdcArray.count < 1) {
         [self alertOnFailedRequest];
     }
-    // NSLog(@"Response from SFDC: %@",sfdcArray);
+    NSLog(@"Response from SFDC: %@",sfdcArray);
     
     
     // send data to delegate

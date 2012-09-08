@@ -16,6 +16,7 @@
 @implementation LaunchViewController
 
 @synthesize contactInfo;
+@synthesize contactStatus;
 @synthesize nameLabel;
 @synthesize emailLabel;
 @synthesize checkinButton;
@@ -71,17 +72,23 @@
 
 #pragma mark - Deal with Results
 -(void)parseContactData:(NSArray *)returnedArray {
-    checkinButton.hidden = NO;
-
+    checkinButton.hidden = YES;
     // NSLog(@"parseContactData called. returnedArray: \n %@",returnedArray);
     for (NSDictionary *obj in returnedArray) {
-        NSLog(@"presenceID: %@",presenceID);
-        // NSLog(@"obj: %@",obj);
+        // NSLog(@"presenceID: %@",presenceID);
         contactInfo = [[NSDictionary alloc] initWithDictionary:[obj objectForKey:@"Contact__r"]];
-        NSLog(@"contactInfo: %@",contactInfo);
-                
+        contactStatus = [[NSString alloc] initWithFormat:@"%@",[obj objectForKey:@"Status__c"]];
+        NSLog(@"contactStatus: %@",contactStatus);
+        // NSLog(@"contactInfo: %@",contactInfo);
         nameLabel.text = [[[NSString alloc] initWithFormat:@"%@ %@",[contactInfo objectForKey:@"FirstName"],[contactInfo objectForKey:@"LastName"],nil] autorelease];
-        emailLabel.text = [contactInfo objectForKey:@"Email"];
+        if ([contactStatus isEqualToString:@"Attended"]){
+            // checkinButton.hidden = YES;
+            emailLabel.text = @"Is Already Checked In";
+            return;
+        } else {
+            emailLabel.text = [contactInfo objectForKey:@"Email"];
+            checkinButton.hidden = NO;
+        }
         
     }
     // nameLabel.text = [[returnedArray objectForKey:@"Property__r"] objectForKey:@"Name"];
@@ -94,6 +101,7 @@
     [emailLabel release];
     [checkinButton release];
     [scanButton release];
+    [contactStatus release];
     [contactInfo release];
     [super dealloc];
 }
