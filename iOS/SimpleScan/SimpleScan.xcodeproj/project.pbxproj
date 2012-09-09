@@ -110,7 +110,7 @@
 		0F3BF7BB15BA53A200A32D1D /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		0F52996D15B8C91C00683C79 /* navigation_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigation_bar.png; sourceTree = "<group>"; };
 		0F52996E15B8C91C00683C79 /* navigation_bar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigation_bar@2x.png"; sourceTree = "<group>"; };
-		0F564F1415B385C800484006 /* SimpleScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F564F1415B385C800484006 /* InventoryScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InventoryScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F564F1815B385C800484006 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0F564F1A15B385C800484006 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0F564F1C15B385C800484006 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -347,7 +347,7 @@
 		0F564F1515B385C800484006 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0F564F1415B385C800484006 /* SimpleScan.app */,
+				0F564F1415B385C800484006 /* InventoryScan.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -740,9 +740,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0F564F1315B385C800484006 /* SimpleScan */ = {
+		0F564F1315B385C800484006 /* InventoryScan */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0F564FCC15B385C800484006 /* Build configuration list for PBXNativeTarget "SimpleScan" */;
+			buildConfigurationList = 0F564FCC15B385C800484006 /* Build configuration list for PBXNativeTarget "InventoryScan" */;
 			buildPhases = (
 				0F564F0F15B385C800484006 /* Sources */,
 				0F564F1015B385C800484006 /* Frameworks */,
@@ -753,9 +753,9 @@
 			);
 			dependencies = (
 			);
-			name = SimpleScan;
+			name = InventoryScan;
 			productName = SimpleScan;
-			productReference = 0F564F1415B385C800484006 /* SimpleScan.app */;
+			productReference = 0F564F1415B385C800484006 /* InventoryScan.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -778,7 +778,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0F564F1315B385C800484006 /* SimpleScan */,
+				0F564F1315B385C800484006 /* InventoryScan */,
 			);
 		};
 /* End PBXProject section */
@@ -877,7 +877,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Critz (YH7WVD5MA3)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -896,6 +896,7 @@
 					"-ObjC",
 					"-all_load",
 				);
+				PROVISIONING_PROFILE = "6335C87D-F07C-4BC2-A0DE-FFF4FCA4C598";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -906,7 +907,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Critz (YH7WVD5MA3)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -918,6 +919,7 @@
 					"-ObjC",
 					"-all_load",
 				);
+				PROVISIONING_PROFILE = "6335C87D-F07C-4BC2-A0DE-FFF4FCA4C598";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -974,7 +976,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0F564FCC15B385C800484006 /* Build configuration list for PBXNativeTarget "SimpleScan" */ = {
+		0F564FCC15B385C800484006 /* Build configuration list for PBXNativeTarget "InventoryScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0F564FCD15B385C800484006 /* Debug */,

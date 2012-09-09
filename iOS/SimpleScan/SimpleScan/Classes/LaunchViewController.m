@@ -20,8 +20,11 @@
 @synthesize nameLabel;
 @synthesize emailLabel;
 @synthesize checkinButton;
+@synthesize quantityLabel;
+@synthesize quantityInput;
+@synthesize quantityStepper;
+@synthesize quantityScanned;
 @synthesize scanButton;
-// @synthesize presenceID;
 @synthesize presenceToUpdate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +39,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [quantityStepper setMinimumValue:0];
+    [quantityStepper setContinuous:YES];
     self.title = @"Simple Scan";
 
     UINavigationBar *navBar = [[self navigationController] navigationBar];
@@ -46,15 +51,32 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+#pragma mark - Memory Management
+
 - (void)viewDidUnload
 {
     [self setNameLabel:nil];
     [self setEmailLabel:nil];
     [self setCheckinButton:nil];
     [self setScanButton:nil];
+    [self setQuantityStepper:nil];
+    [self setQuantityLabel:nil];
+    [self setQuantityInput:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+- (void)dealloc {
+    [nameLabel release];
+    [emailLabel release];
+    [checkinButton release];
+    [scanButton release];
+    [contactStatus release];
+    [contactInfo release];
+    [quantityStepper release];
+    [quantityLabel release];
+    [quantityInput release];
+    [super dealloc];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -96,17 +118,28 @@
 -(void)setpresenceID:(NSString *)returnedPresenceID{
     presenceToUpdate = returnedPresenceID;
 }
-- (void)dealloc {
-    [nameLabel release];
-    [emailLabel release];
-    [checkinButton release];
-    [scanButton release];
-    [contactStatus release];
-    [contactInfo release];
-    [super dealloc];
-}
-- (IBAction)checkinButtonPressed:(UIButton *)sender {
 
+#pragma mark - User Actions
+- (void)quantityChanged:(id)sender {
+    quantityScanned = quantityStepper.value;
+    [self updateQuantity];
+}
+- (IBAction)quantityInputChanged:(id)sender {
+    quantityScanned = [quantityInput.text doubleValue];
+    [self updateQuantity];
+}
+
+- (IBAction)backGroundTap:(id)sender {
+    [quantityInput resignFirstResponder];
+}
+
+-(void)updateQuantity {
+    NSLog(@"Quantity: %f",quantityScanned);
+    quantityInput.text = [NSString stringWithFormat:@"%@",[NSNumber numberWithDouble:quantityScanned]];
+    quantityStepper.value = quantityScanned;
+}
+
+- (IBAction)checkinButtonPressed:(UIButton *)sender {
     NSLog(@"checkinButtonPressed");
      
      // tell sfdc to change status to "Attended"
@@ -182,5 +215,4 @@
     nameLabel.text = @"Scan to Check-In";
     emailLabel.text = @"";
 }
-
 @end

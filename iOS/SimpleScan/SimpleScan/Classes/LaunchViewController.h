@@ -23,6 +23,13 @@
 @property (retain, nonatomic) IBOutlet UILabel *emailLabel;
 @property (retain, nonatomic) IBOutlet UIButton *checkinButton;
 - (IBAction)checkinButtonPressed:(UIButton *)sender;
+@property (retain, nonatomic) IBOutlet UILabel *quantityLabel;
+- (IBAction)quantityInputChanged:(id)sender;
+@property (retain, nonatomic) IBOutlet UITextField *quantityInput;
+- (IBAction)backGroundTap:(id)sender;
+@property (retain, nonatomic) IBOutlet UIStepper *quantityStepper;
+@property (nonatomic, assign) double quantityScanned;
+- (IBAction)quantityChanged:(id)sender;
 @property (nonatomic, retain) IBOutlet UIButton *scanButton;
 -(IBAction)scanButtonPressed:(id)sender;
 - (void)alertOnFailedRequest;

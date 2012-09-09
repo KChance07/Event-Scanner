@@ -14,8 +14,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0F564F1315B385C800484006"
-               BuildableName = "SimpleScan.app"
-               BlueprintName = "SimpleScan"
+               BuildableName = "InventoryScan.app"
+               BlueprintName = "InventoryScan"
                ReferencedContainer = "container:SimpleScan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,8 +32,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F564F1315B385C800484006"
-            BuildableName = "SimpleScan.app"
-            BlueprintName = "SimpleScan"
+            BuildableName = "InventoryScan.app"
+            BlueprintName = "InventoryScan"
             ReferencedContainer = "container:SimpleScan.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -46,13 +46,14 @@
       buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enableOpenGLFrameCaptureMode = "0"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F564F1315B385C800484006"
-            BuildableName = "SimpleScan.app"
-            BlueprintName = "SimpleScan"
+            BuildableName = "InventoryScan.app"
+            BlueprintName = "InventoryScan"
             ReferencedContainer = "container:SimpleScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -69,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0F564F1315B385C800484006"
-            BuildableName = "SimpleScan.app"
-            BlueprintName = "SimpleScan"
+            BuildableName = "InventoryScan.app"
+            BlueprintName = "InventoryScan"
             ReferencedContainer = "container:SimpleScan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
