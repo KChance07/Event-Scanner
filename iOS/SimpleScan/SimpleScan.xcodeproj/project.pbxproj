@@ -49,6 +49,10 @@
 		0F564FD515B3887F00484006 /* ScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F564FD315B3887F00484006 /* ScanViewController.xib */; };
 		0F564FD915B390EB00484006 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F564FD715B390EB00484006 /* LaunchViewController.m */; };
 		0F564FDA15B390EB00484006 /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F564FD815B390EB00484006 /* LaunchViewController.xib */; };
+		0F612CBC15FE3EF000C435D8 /* buttonBk.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F612CB815FE3EEF00C435D8 /* buttonBk.png */; };
+		0F612CBD15FE3EF000C435D8 /* buttonBk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F612CB915FE3EEF00C435D8 /* buttonBk@2x.png */; };
+		0F612CBE15FE3EF000C435D8 /* inventoryPlacard.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F612CBA15FE3EF000C435D8 /* inventoryPlacard.png */; };
+		0F612CBF15FE3EF000C435D8 /* inventoryPlacard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F612CBB15FE3EF000C435D8 /* inventoryPlacard@2x.png */; };
 		0F69EC2B15B64D3D005D1E44 /* pass_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F69EC2915B64D3D005D1E44 /* pass_card.png */; };
 		0F69EC2C15B64D3D005D1E44 /* pass_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F69EC2A15B64D3D005D1E44 /* pass_card@2x.png */; };
 		0FEDC9D215B396A100CA13CA /* libzbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEDC9CC15B396A100CA13CA /* libzbar.a */; };
@@ -245,6 +249,10 @@
 		0F564FD615B390EB00484006 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LaunchViewController.h; path = Classes/LaunchViewController.h; sourceTree = "<group>"; };
 		0F564FD715B390EB00484006 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LaunchViewController.m; path = Classes/LaunchViewController.m; sourceTree = "<group>"; };
 		0F564FD815B390EB00484006 /* LaunchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LaunchViewController.xib; path = Classes/LaunchViewController.xib; sourceTree = "<group>"; };
+		0F612CB815FE3EEF00C435D8 /* buttonBk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBk.png; sourceTree = "<group>"; };
+		0F612CB915FE3EEF00C435D8 /* buttonBk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonBk@2x.png"; sourceTree = "<group>"; };
+		0F612CBA15FE3EF000C435D8 /* inventoryPlacard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inventoryPlacard.png; sourceTree = "<group>"; };
+		0F612CBB15FE3EF000C435D8 /* inventoryPlacard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "inventoryPlacard@2x.png"; sourceTree = "<group>"; };
 		0F69EC2915B64D3D005D1E44 /* pass_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pass_card.png; sourceTree = "<group>"; };
 		0F69EC2A15B64D3D005D1E44 /* pass_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pass_card@2x.png"; sourceTree = "<group>"; };
 		0FEDC9B815B396A100CA13CA /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
@@ -598,6 +606,10 @@
 		0F564FA115B385C800484006 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0F612CB815FE3EEF00C435D8 /* buttonBk.png */,
+				0F612CB915FE3EEF00C435D8 /* buttonBk@2x.png */,
+				0F612CBA15FE3EF000C435D8 /* inventoryPlacard.png */,
+				0F612CBB15FE3EF000C435D8 /* inventoryPlacard@2x.png */,
 				0F52996D15B8C91C00683C79 /* navigation_bar.png */,
 				0F52996E15B8C91C00683C79 /* navigation_bar@2x.png */,
 				0F69EC2915B64D3D005D1E44 /* pass_card.png */,
@@ -833,6 +845,10 @@
 				0F52997015B8C91C00683C79 /* navigation_bar@2x.png in Resources */,
 				0F3BF7BC15BA53A200A32D1D /* Default.png in Resources */,
 				0F3BF7BD15BA53A200A32D1D /* default@2x.png in Resources */,
+				0F612CBC15FE3EF000C435D8 /* buttonBk.png in Resources */,
+				0F612CBD15FE3EF000C435D8 /* buttonBk@2x.png in Resources */,
+				0F612CBE15FE3EF000C435D8 /* inventoryPlacard.png in Resources */,
+				0F612CBF15FE3EF000C435D8 /* inventoryPlacard@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

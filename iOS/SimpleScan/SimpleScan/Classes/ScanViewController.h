@@ -13,7 +13,7 @@
 @protocol scanViewDataSource <NSObject>
 
 -(void)parseContactData:(NSArray *)contactArray;
--(void)setpresenceID:(NSString *)presenceID;
+// -(void)setpresenceID:(NSString *)presenceID;
 
 @end
 

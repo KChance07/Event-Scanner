@@ -94,7 +94,7 @@
          */
         
         // Inventory Object
-        NSString *scanQuery = [NSString stringWithFormat:@"SELECT Id,Product__c,Quantity__c FROM Inventory_History__c WHERE Product__r.ProductCode = '%@'",scannedText];
+        NSString *scanQuery = [NSString stringWithFormat:@"SELECT id,Name,ProductCode FROM Product2 WHERE ProductCode = '%@'",scannedText];
 
         SFRestRequest *request = [[SFRestAPI sharedInstance] requestForQuery:scanQuery];
         [[SFRestAPI sharedInstance] send:request delegate:self];
@@ -125,7 +125,7 @@
     if([delegate respondsToSelector:@selector(parseContactData:)])
     {
         //send the delegate function with the returned array
-        [delegate setpresenceID:scannedText];
+        // [delegate setpresenceID:scannedText];
         [delegate parseContactData:sfdcArray];
     }
     
