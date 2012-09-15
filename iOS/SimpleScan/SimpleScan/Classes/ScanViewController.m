@@ -85,20 +85,22 @@
         NSLog(@"My scan results: %@",scannedText);
 
         resultText.text = scannedText;
-
-        // Here we use a query that should work on either Force.com or Database.com
         
-        // Contact Presence
-        /*
-        NSString *scanQuery = [NSString stringWithFormat:@"Select id, Status__c, Contact__r.Email, Contact__r.FirstName, Contact__r.LastName, Contact__c From Presence__c WHERE ID = '%@'",scannedText];
-         */
+        // Check to see pattern matches UPC standards
+        NSError *error = NULL;
+        NSRegularExpression *regex = [NSRegularExpression
+               regularExpressionWithPattern:@"([0-9]{13})"
+                                    options:NSRegularExpressionCaseInsensitive
+                                      error:&error];
         
-        // Inventory Object
-        NSString *scanQuery = [NSString stringWithFormat:@"SELECT id,Name,ProductCode FROM Product2 WHERE ProductCode = '%@'",scannedText];
-
-        SFRestRequest *request = [[SFRestAPI sharedInstance] requestForQuery:scanQuery];
-        [[SFRestAPI sharedInstance] send:request delegate:self];
-
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:scannedText
+                                                            options:0
+                                                              range:NSMakeRange(0, [scannedText length])];
+        if (numberOfMatches == 1) {
+            [self createQuery];
+        } else {
+            NSLog(@"Matches != 1.\nnumberOfMatches: %u.\nscannedText: %@",numberOfMatches,scannedText);
+        }
         break;
     }
 }
@@ -109,6 +111,14 @@
 }
 
 #pragma mark - SFRestAPIDelegate
+
+-(void)createQuery {
+    // Inventory Object
+    NSString *scanQuery = [NSString stringWithFormat:@"SELECT id,Name,ProductCode FROM Product2 WHERE ProductCode = '%@'",scannedText];
+    
+    SFRestRequest *request = [[SFRestAPI sharedInstance] requestForQuery:scanQuery];
+    [[SFRestAPI sharedInstance] send:request delegate:self];
+}
 
 - (void)request:(SFRestRequest *)request didLoadResponse:(id)jsonResponse {
     NSLog(@"jsonResponse: %@",jsonResponse);
