@@ -87,24 +87,11 @@
         resultText.text = scannedText;
 
         // Here we use a query that should work on either Force.com or Database.com
-        // NSString *myScanText = [[NSString alloc] initWithFormat:scannedText];
         
         NSString *scanQuery = [NSString stringWithFormat:@"Select id, Status__c, Contact__r.Email, Contact__r.FirstName, Contact__r.LastName, Contact__c From Presence__c WHERE ID = '%@'",scannedText];
         SFRestRequest *request = [[SFRestAPI sharedInstance] requestForQuery:scanQuery];
         [[SFRestAPI sharedInstance] send:request delegate:self];
         
-        /*
-        // modify object
-        NSDictionary *updatedFields = [NSDictionary dictionaryWithObjectsAndKeys:
-                                       updatedLastName, @"LastName", 
-                                       nil];
-        request = [[SFRestAPI sharedInstance] requestForUpdateWithObjectType:@"Contact" objectId:contactId fields:updatedFields];
-        [self sendSyncRequest:request];
-        STAssertEqualObjects(_requestListener.returnStatus, kTestRequestStatusDidLoad, @"request failed"); 
-        
-        We would replace the requestForUpdateWithObjectType:@"Contact" with:
-        requestForUpdateWithObjectType:@"Presence__c"
-         */
         break;
     }
 }
