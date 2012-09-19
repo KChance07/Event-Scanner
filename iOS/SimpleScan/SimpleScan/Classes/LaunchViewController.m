@@ -62,9 +62,6 @@
     [self setQuantityStepper:nil];
     [self setQuantityLabel:nil];
     [self setQuantityInput:nil];
-    // [self setQuantityToUpdate:nil];
-    
-    // [self setCreateProductHistory:nil];
     [self setSfdcProduct:nil];
     [self setSfdcProductID:nil];
     
@@ -84,8 +81,6 @@
     [quantityStepper release];
     [quantityLabel release];
     [quantityInput release];
-    // [quantityToUpdate release];
-    // [createProductHistory release];
     [sfdcProductID release];
     [sfdcProduct release];
     
@@ -115,23 +110,7 @@
     quantityInput.hidden = NO;
     quantityLabel.hidden = NO;
     
-    // NSLog(@"parseContactData called. returnedArray: \n %@",returnedArray);
     for (NSDictionary *obj in returnedArray) {
-        /* 
-         // Contacts
-        contactInfo = [[NSDictionary alloc] initWithDictionary:[obj objectForKey:@"Contact__r"]];
-        contactStatus = [[NSString alloc] initWithFormat:@"%@",[obj objectForKey:@"Status__c"]];
-        NSLog(@"contactStatus: %@",contactStatus);
-        nameLabel.text = [[[NSString alloc] initWithFormat:@"%@ %@",[contactInfo objectForKey:@"FirstName"],[contactInfo objectForKey:@"LastName"],nil] autorelease];
-        if ([contactStatus isEqualToString:@"Attended"]){
-            // checkinButton.hidden = YES;
-            emailLabel.text = @"Is Already Checked In";
-            return;
-        } else {
-            emailLabel.text = [contactInfo objectForKey:@"Email"];
-            checkinButton.hidden = NO;
-        }
-        */
         
         // Products
         sfdcProductID = [[NSString alloc] initWithFormat:@"%@",[obj objectForKey:@"Id"]];
@@ -143,9 +122,6 @@
     }
     // [returnedArray release];
 }
-//-(void)setpresenceID:(NSString *)returnedPresenceID{
-//    presenceToUpdate = returnedPresenceID;
-//}
 
 #pragma mark - User Actions
 - (void)quantityChanged:(id)sender {
@@ -172,14 +148,8 @@
     checkinButton.hidden = YES;
     spinner.hidden = NO;
     [spinner startAnimating];
-     // tell sfdc to change status to "Attended"
-    /* 
-     NSDictionary *updatedFields = [NSDictionary dictionaryWithObjectsAndKeys:@"Attended", @"Status__c", nil];
-    SFRestRequest *request = [[SFRestAPI sharedInstance] requestForUpdateWithObjectType:@"Presence__c" objectId:presenceToUpdate fields:updatedFields];
-    [[SFRestAPI sharedInstance] send:request delegate:self];
-    // requestForUpdateWithObjectType does not return a json.
-    */
     
+     // tell sfdc to change status to "Attended"
     NSDictionary *productHistoryFields = [NSDictionary dictionaryWithObjectsAndKeys:
                                           sfdcProductID, @"Product__c",
                                           [[[NSString alloc] initWithFormat:@"%f",sfdcQuantity] autorelease], @"Quantity__c",
@@ -189,27 +159,6 @@
     SFRestRequest *request = [[SFRestAPI sharedInstance] requestForCreateWithObjectType:@"Inventory_History__c"
                                 fields:productHistoryFields];
     [[SFRestAPI sharedInstance] send:request delegate:self];
-     
-    // second request to confirm change in status
-    /*
-     NSString *confirmationQuery = [NSString stringWithFormat:@"Select id, Status__c  From Presence__c WHERE ID = '%@'",presenceToUpdate];
-    SFRestRequest *requestToConfirmUpdate = [[SFRestAPI sharedInstance] requestForQuery:confirmationQuery];
-    [[SFRestAPI sharedInstance] send:requestToConfirmUpdate delegate:self];
-     */
-    /*
-     NSDictionary *fields = [NSDictionary dictionaryWithObjectsAndKeys:
-     @"John", @"FirstName",
-     lastName, @"LastName",
-     nil];
-     
-     SFRestRequest* request = [[SFRestAPI sharedInstance] requestForCreateWithObjectType:@"Contact" fields:fields];
-     [self sendSyncRequest:request];
-     STAssertEqualObjects(_requestListener.returnStatus, kTestRequestStatusDidLoad, @"request failed");
-     
-     // make sure we got an id
-     NSString *contactId = [[[(NSDictionary *)_requestListener.jsonResponse objectForKey:@"id"] retain] autorelease];
-     STAssertNotNil(contactId, @"id not present");
-     */
 }
 
 #pragma mark - SFRestAPIDelegate
@@ -227,21 +176,6 @@
     } else {
         [self alertOnFailedRequest];
     }
-    /*
-     // Contacts
-    NSLog(@"request:didLoadResponse: # of records: %d", sfdcResponse.count);
-    for (NSDictionary *obj in sfdcResponse) {
-        NSLog(@"obj: %@",obj);
-        NSString *presenseStatus = [[[NSString alloc] initWithFormat:@"%@",[obj objectForKey:@"Status__c"]] autorelease];
-        if ([presenseStatus isEqualToString:@"Attended"]) {
-            NSLog(@"presenseStatus == Attended");
-            [self successfulConfirmation];
-        } else {
-            NSLog(@"presenseStatus != 'Attended' actual value: %@",presenseStatus);
-            [self successfulConfirmation];
-        }
-    }
-     */
 }
 
 
